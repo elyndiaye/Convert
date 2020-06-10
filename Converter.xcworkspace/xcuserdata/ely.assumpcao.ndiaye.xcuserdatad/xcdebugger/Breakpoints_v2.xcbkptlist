@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0CE2D67D-1DEF-4BB5-ABB2-CD94B1D8E3D7"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B77DD114-7B6D-4704-88EC-828D3BB94730"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Converter/Services/CurrencyServiceImplement.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getItens(completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B77DD114-7B6D-4704-88EC-828D3BB94730 - 60fd5cf005ec47b6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Converter.ItemServiceImpl.getItens(completionHandler: (Swift.Result&lt;Converter.Currency, Converter.NetworkErrors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ely.assumpcao.ndiaye/Projects/Converter/Converter/Services/CurrencyServiceImplement.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "315">
+               </Location>
+               <Location
+                  uuid = "B77DD114-7B6D-4704-88EC-828D3BB94730 - 60fd5cf005ec47b6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in Converter.ItemServiceImpl.getItens(completionHandler: (Swift.Result&lt;Converter.Currency, Converter.NetworkErrors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ely.assumpcao.ndiaye/Projects/Converter/Converter/Services/CurrencyServiceImplement.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "357">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
