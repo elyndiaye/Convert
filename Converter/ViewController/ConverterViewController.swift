@@ -11,7 +11,7 @@ import UIKit
 class ConverterViewController: UIViewController {
     
     let screenConverter = ConverterView()
-
+    var viewModel = LiveQuoteViewModel()
          
          override func loadView() {
              super.loadView()
@@ -47,7 +47,19 @@ extension ConverterViewController: ExchangeDelegate{
     
     func ExchangeBtn() {
         print("Exchange")
-        //present
+        
+        viewModel.getDataFromAPI { (item) in
+            //MARK: -- DispatchBackground - CoreData DispatchQueue.global(qos: .background).async
+            DispatchQueue.main.async {
+                if let liveQuotes = item.quotes, !liveQuotes.isEmpty {
+                    print(item)
+                } else {
+                    print("ApagA")
+                }
+            }
+            
+        }
+        
     }
     
     

@@ -10,6 +10,7 @@ import Foundation
 
 protocol ItemService {
     func getItens(completionHandler: @escaping (Result<Currency, NetworkErrors>) -> Void )
+    func getLiveQuotes(completionHandler: @escaping (Result<LiveQuote, NetworkErrors>) -> Void )
 }
 
 class ItemServiceImpl: ItemService {
@@ -44,6 +45,27 @@ class ItemServiceImpl: ItemService {
             
         }
     }
+    
+    func getLiveQuotes(completionHandler: @escaping (Result<LiveQuote, NetworkErrors>) -> Void ) {
+           apiCLiente.fetchData(url: "\(baseURL)\(live)?\(accessKey)=\(key)") { (response) in
+               switch response{
+               case .success(let data):
+                   let decoder = JSONDecoder()
+                   decoder.keyDecodingStrategy = .convertFromSnakeCase
+                   guard let decodedItens = try? decoder.decode(LiveQuote.self, from: data) else {
+                       completionHandler(.failure(.invalidData))
+                       return
+                   }
+                   print(decodedItens)
+                   //completion
+                   completionHandler(.success(decodedItens))
+               case .failure(let error):
+                   debugPrint(error)
+                   completionHandler(.failure(.invalidResponse))
+               }
+               
+           }
+       }
     
 //    func getCategory(completionHandler: @escaping (Result<[Release], Error>) -> Void , releaseArray: [Release] ){
 //        apiCLiente.fetchData(url: CATEGORY_URL) { (response) in

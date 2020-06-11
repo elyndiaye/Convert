@@ -32,12 +32,12 @@ class APIClient {
             }
 
             guard let response = response as? HTTPURLResponse else {
-                completion(.failure(NetworkErrors.invalidResponse))
+                completion(.failure(NetworkErrors.unableToComplete))
                 return
             }
 
             guard response.statusCode == 200 else {
-                completion(.failure(NetworkErrors.unableToComplete))
+                completion(.failure(NetworkErrors.invalidResponse))
                 return
             }
 

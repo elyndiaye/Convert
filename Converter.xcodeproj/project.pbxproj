@@ -31,6 +31,8 @@
 		801389A0248CBEE5005E96DC /* CurrencyTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013899F248CBEE5005E96DC /* CurrencyTableViewDataSource.swift */; };
 		801389A2248CC053005E96DC /* CurrencyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801389A1248CC053005E96DC /* CurrencyTableViewDelegate.swift */; };
 		80415AD6248D7330002A46F3 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80415AD5248D7330002A46F3 /* Protocol.swift */; };
+		804A12E12491F493003D6DB3 /* LiveQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A12E02491F493003D6DB3 /* LiveQuote.swift */; };
+		804A12E32491F876003D6DB3 /* LiveQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */; };
 		920B24D56CEBFF314232DFDF /* Pods_Converter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C379B07DCD28172477D632 /* Pods_Converter.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		8013899F248CBEE5005E96DC /* CurrencyTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewDataSource.swift; sourceTree = "<group>"; };
 		801389A1248CC053005E96DC /* CurrencyTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewDelegate.swift; sourceTree = "<group>"; };
 		80415AD5248D7330002A46F3 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		804A12E02491F493003D6DB3 /* LiveQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuote.swift; sourceTree = "<group>"; };
+		804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuoteViewModel.swift; sourceTree = "<group>"; };
 		D55721F766F1604678AD1DF3 /* Pods-Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.release.xcconfig"; sourceTree = "<group>"; };
 		E9E663C1E038D65D48091F69 /* Pods-Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.debug.xcconfig"; sourceTree = "<group>"; };
 		EDCC03651633C28D4629FE11 /* Pods-ConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConverterTests/Pods-ConverterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				80138997248CA1BD005E96DC /* Currency.swift */,
+				804A12E02491F493003D6DB3 /* LiveQuote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				80138999248CA6C8005E96DC /* CurrencyViewModel.swift */,
+				804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -427,11 +433,13 @@
 				801389A0248CBEE5005E96DC /* CurrencyTableViewDataSource.swift in Sources */,
 				80138996248C9D5D005E96DC /* CurrencyServiceImplement.swift in Sources */,
 				80138994248C978B005E96DC /* ApiClient.swift in Sources */,
+				804A12E12491F493003D6DB3 /* LiveQuote.swift in Sources */,
 				80138960248C3E10005E96DC /* ConverterListViewController.swift in Sources */,
 				8013899A248CA6C8005E96DC /* CurrencyViewModel.swift in Sources */,
 				80415AD6248D7330002A46F3 /* Protocol.swift in Sources */,
 				801389A2248CC053005E96DC /* CurrencyTableViewDelegate.swift in Sources */,
 				8013895C248C3E10005E96DC /* AppDelegate.swift in Sources */,
+				804A12E32491F876003D6DB3 /* LiveQuoteViewModel.swift in Sources */,
 				80138966248C3E10005E96DC /* Converter.xcdatamodeld in Sources */,
 				80138992248C536E005E96DC /* ConverterView.swift in Sources */,
 				8013898A248C459E005E96DC /* CodeView.swift in Sources */,

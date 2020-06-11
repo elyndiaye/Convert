@@ -14,10 +14,3 @@ struct Currency: Codable {
     let terms, privacy: String?
     let currencies: [String: String]?
 }
-
-//struct Currency: Decodable, Hashable {
-//        let success: Bool
-//        let terms: URL
-//        let privacy: URL
-//        let currencies: [String : String]
-//}

@@ -37,8 +37,13 @@ class ConverterListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        api()
+    }
+    
+    //MARK: - Call API
+    func api(){
         viewModel.getDataFromAPI { (item) in
-            //MARK: -- DispatchBackground - CoreData DispatchQueue.global(qos: .background).async 
+            //MARK: -- DispatchBackground - CoreData DispatchQueue.global(qos: .background).async
             DispatchQueue.main.async {
                 if let currencies = item.currencies, !currencies.isEmpty {
                     print(item)
