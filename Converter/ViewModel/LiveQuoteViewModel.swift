@@ -21,4 +21,21 @@ class LiveQuoteViewModel {
             }
         }
     }
+    
+    func convertValue(item : LiveQuote, from: String, to:String){
+        let USD = "USD"
+        let fromUSD = USD + from
+        let toUSD = USD + to
+        
+        print(toUSD)
+        
+        guard let newItem = item.quotes else {return}
+        
+//        if(toUSD == newItem.keys){
+//
+//        }
+        
+        print (item.quotes?.keys)
+    }
+    
 }

@@ -12,6 +12,11 @@ import UIKit
 
 final class ConverterListView: UIView{
     
+    lazy var search: UISearchBar = {
+           let view = UISearchBar()
+           return view
+       }()
+    
     lazy var table: UITableView = {
         let view = UITableView()
         view.separatorStyle = .singleLine
@@ -39,6 +44,7 @@ final class ConverterListView: UIView{
 
 extension ConverterListView: CodeView{
     func buildViewHierarchy() {
+        addSubview(search)
         addSubview(table)
         addSubview(load)
         bringSubviewToFront(load)
@@ -47,8 +53,13 @@ extension ConverterListView: CodeView{
     func setupConstraints() {
         //Configurar Constraints
         //Snapkit
-        table.snp.makeConstraints { make in
+        search.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
+            make.right.left.equalToSuperview()
+        }
+        
+        table.snp.makeConstraints { make in
+            make.top.equalTo(search.snp_bottomMargin)
             make.right.left.bottom.equalToSuperview()
         }
         

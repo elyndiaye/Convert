@@ -14,6 +14,8 @@ class ConverterListViewController: UIViewController {
     
     var viewModel = CurrencyViewModel()
     
+     var inSearchMode = false
+    
     var tableViewDataSource: CurrencyTableViewDataSource?
     var tableViewDelegate: CurrencyTableViewDelegate?
     
@@ -37,7 +39,10 @@ class ConverterListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.screenList.table.isHidden = true
+        screenList.load.startAnimating()
         api()
+        setupSearchBar()
     }
     
     //MARK: - Call API
@@ -81,6 +86,47 @@ extension ConverterListViewController: ConvertSelectionDelegate{
     }
 }
 
+// MARK: - UISearchDelate
+extension ConverterListViewController: UISearchBarDelegate{
+    func setupSearchBar() {
+        self.screenList.search.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        screenList.search.resignFirstResponder()
+        let query = searchBar.text ?? ""
+        if !query.isEmpty {
+            print(query)
+          //  apiWithQueryHandler(query: query)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        screenList.search.showsCancelButton = false
+        print("Cancel")
+        //Verificar:
+        screenList.table.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            inSearchMode = false
+           // self.setupCollectionView(with: self.movie)
+        } else {
+            screenList.search.showsCancelButton = true
+            inSearchMode = true
+            print(searchText)
+            viewModel.getFiltredQuotes(searchText: searchText)
+          //  filteredMovie = movie.filter({ $0.title?.lowercased().range(of: searchText.lowercased()) != nil })
+            //filter({$0.title.lowercased().contains(searchText.lowercased())})
+            //print(filteredMovie)
+           // self.setupCollectionView(with: self.filteredMovie)
+        }
+    }
+    
+}
 
 
 

@@ -56,7 +56,6 @@ class ItemServiceImpl: ItemService {
                        completionHandler(.failure(.invalidData))
                        return
                    }
-                   print(decodedItens)
                    //completion
                    completionHandler(.success(decodedItens))
                case .failure(let error):
@@ -66,31 +65,6 @@ class ItemServiceImpl: ItemService {
                
            }
        }
-    
-//    func getCategory(completionHandler: @escaping (Result<[Release], Error>) -> Void , releaseArray: [Release] ){
-//        apiCLiente.fetchData(url: CATEGORY_URL) { (response) in
-//            switch response{
-//            case .success(let data):
-//                let decoder = JSONDecoder()
-//                guard let categores = try? decoder.decode([Category].self, from: data) else {
-//                    completionHandler(.failure(RequestError.decoded))
-//                    return
-//                }
-//                var releases: [Release] = []
-//                for var release in releaseArray {
-//                    release.categoriaNome = categores.first(where: { (category) -> Bool in
-//                        return category.id == release.categoria
-//                        })?.nome
-//                    releases.append(release)
-//                }
-//                completionHandler(.success(releases))
-//
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//            }
-//
-//        }
-//    }
     
 }
 

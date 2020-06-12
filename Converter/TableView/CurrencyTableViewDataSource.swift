@@ -9,10 +9,14 @@
 import UIKit
 
 final class CurrencyTableViewDataSource: NSObject, UITableViewDataSource{
-    var items:[String: String]
+    var items:[(key: String, value: String)]
     
     init(items: [String: String], tableView: UITableView){
-        self.items = items
+        self.items = items.sorted(by:{
+            $0.key < $1.key
+        } )
+    
+        
         super.init()
         setupTableView(tableView)
     }
@@ -28,8 +32,8 @@ final class CurrencyTableViewDataSource: NSObject, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath,
                                                  cellType: ConvertListCell.self)
-        let key = Array(items.keys)[indexPath.row]
-        let value = Array(items.values)[indexPath.row]
+        let key = items[indexPath.row].key
+        let value = items[indexPath.row].value
         cell.configureCell(item: (key,value))
         return cell
     }

@@ -12,6 +12,9 @@ class ConverterViewController: UIViewController {
     
     let screenConverter = ConverterView()
     var viewModel = LiveQuoteViewModel()
+    
+    var textFrom: String = ""
+    var textTo: String = ""
          
          override func loadView() {
              super.loadView()
@@ -32,6 +35,7 @@ extension ConverterViewController: ExchangeDelegate{
     func pressFromBtn() {
         print ("From")
         let controller = ConverterListViewController(isSelectedTable: true){ text in
+            self.textFrom = text
             self.screenConverter.valueLbl.text = text
         }
        self.navigationController?.pushViewController(controller, animated: true)
@@ -40,6 +44,7 @@ extension ConverterViewController: ExchangeDelegate{
     func pressToBtn() {
         print("To")
         let controller = ConverterListViewController(isSelectedTable: true){ text in
+            self.textTo = text
             self.screenConverter.valueToLbl.text = text
         }
         self.navigationController?.pushViewController(controller, animated: true)
@@ -52,7 +57,7 @@ extension ConverterViewController: ExchangeDelegate{
             //MARK: -- DispatchBackground - CoreData DispatchQueue.global(qos: .background).async
             DispatchQueue.main.async {
                 if let liveQuotes = item.quotes, !liveQuotes.isEmpty {
-                    print(item)
+                    self.viewModel.convertValue(item: item, from: self.textFrom, to: self.textTo)
                 } else {
                     print("ApagA")
                 }
