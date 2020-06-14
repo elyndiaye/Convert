@@ -10,16 +10,18 @@ import UIKit
 
 final class CurrencyTableViewDelegate: NSObject, UITableViewDelegate{
     weak var delegate: ConvertSelectionDelegate?
-    let items:[String: String]
+    let items:[(key: String, value: String)]
                         
     init(items: [String: String], delegate: ConvertSelectionDelegate){
-        self.items = items
+        self.items = items.sorted(by:{
+            $0.key < $1.key
+        } )
         self.delegate = delegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let key = Array(items.keys)[indexPath.row]
-        let value = Array(items.values)[indexPath.row]
+        let key = items[indexPath.row].key
+        let value = items[indexPath.row].value
         delegate?.didSelect(item: (key,value))
     }
     
