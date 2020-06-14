@@ -33,6 +33,11 @@
 		80415AD6248D7330002A46F3 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80415AD5248D7330002A46F3 /* Protocol.swift */; };
 		804A12E12491F493003D6DB3 /* LiveQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A12E02491F493003D6DB3 /* LiveQuote.swift */; };
 		804A12E32491F876003D6DB3 /* LiveQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */; };
+		80AE6FA22496891300F05964 /* ConverterViewsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FA12496891300F05964 /* ConverterViewsSpec.swift */; };
+		80AE6FA524968EA400F05964 /* currencesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 80AE6FA424968EA400F05964 /* currencesList.json */; };
+		80AE6FA724968ED500F05964 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FA624968ED500F05964 /* JsonHelper.swift */; };
+		80AE6FA924968F8C00F05964 /* ConvertServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FA824968F8C00F05964 /* ConvertServiceMock.swift */; };
+		80AE6FAB249690CF00F05964 /* ConverterListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FAA249690CF00F05964 /* ConverterListViewControllerSpec.swift */; };
 		920B24D56CEBFF314232DFDF /* Pods_Converter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C379B07DCD28172477D632 /* Pods_Converter.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +84,11 @@
 		80415AD5248D7330002A46F3 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		804A12E02491F493003D6DB3 /* LiveQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuote.swift; sourceTree = "<group>"; };
 		804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuoteViewModel.swift; sourceTree = "<group>"; };
+		80AE6FA12496891300F05964 /* ConverterViewsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewsSpec.swift; sourceTree = "<group>"; };
+		80AE6FA424968EA400F05964 /* currencesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencesList.json; sourceTree = "<group>"; };
+		80AE6FA624968ED500F05964 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		80AE6FA824968F8C00F05964 /* ConvertServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertServiceMock.swift; sourceTree = "<group>"; };
+		80AE6FAA249690CF00F05964 /* ConverterListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterListViewControllerSpec.swift; sourceTree = "<group>"; };
 		D55721F766F1604678AD1DF3 /* Pods-Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.release.xcconfig"; sourceTree = "<group>"; };
 		E9E663C1E038D65D48091F69 /* Pods-Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.debug.xcconfig"; sourceTree = "<group>"; };
 		EDCC03651633C28D4629FE11 /* Pods-ConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConverterTests/Pods-ConverterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,8 +167,12 @@
 		80138974248C3E13005E96DC /* ConverterTests */ = {
 			isa = PBXGroup;
 			children = (
+				80AE6FA324968D9E00F05964 /* Json */,
 				80138975248C3E13005E96DC /* ConverterTests.swift */,
 				80138977248C3E13005E96DC /* Info.plist */,
+				80AE6FA12496891300F05964 /* ConverterViewsSpec.swift */,
+				80AE6FAA249690CF00F05964 /* ConverterListViewControllerSpec.swift */,
+				80AE6FA824968F8C00F05964 /* ConvertServiceMock.swift */,
 			);
 			path = ConverterTests;
 			sourceTree = "<group>";
@@ -228,6 +242,15 @@
 				804A12E22491F876003D6DB3 /* LiveQuoteViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80AE6FA324968D9E00F05964 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				80AE6FA424968EA400F05964 /* currencesList.json */,
+				80AE6FA624968ED500F05964 /* JsonHelper.swift */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 		A2FC92086D3AFE9CFB121D25 /* Pods */ = {
@@ -337,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80AE6FA524968EA400F05964 /* currencesList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +481,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80AE6FA724968ED500F05964 /* JsonHelper.swift in Sources */,
+				80AE6FAB249690CF00F05964 /* ConverterListViewControllerSpec.swift in Sources */,
+				80AE6FA22496891300F05964 /* ConverterViewsSpec.swift in Sources */,
 				80138976248C3E13005E96DC /* ConverterTests.swift in Sources */,
+				80AE6FA924968F8C00F05964 /* ConvertServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
