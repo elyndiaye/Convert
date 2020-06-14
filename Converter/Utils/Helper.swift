@@ -20,3 +20,13 @@ extension UIColor {
     }
     
 }
+
+extension UIViewController {
+    
+    func DisplayTextField(text: String, message: String?) {
+    let alert = UIAlertController(title: text, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true) }}
+    
+}
