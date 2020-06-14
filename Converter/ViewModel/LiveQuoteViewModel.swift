@@ -12,6 +12,8 @@ class LiveQuoteViewModel {
     typealias completionBlock = (LiveQuote) -> ()
     var service: ItemService = ItemServiceImpl()
     
+    var result: Double = 0.0
+    var finalResult: Double = 0.0
     
     func getDataFromAPI(completionBlock : @escaping completionBlock){
         
@@ -22,20 +24,23 @@ class LiveQuoteViewModel {
         }
     }
     
-    func convertValue(item : LiveQuote, from: String, to:String){
+    func convertValue(item : LiveQuote, from: String, to:String, value: Double){
         let USD = "USD"
         let fromUSD = USD + from
         let toUSD = USD + to
         
-        print(toUSD)
+        guard let quotesUSDFrom = item.quotes, let valueFrom = quotesUSDFrom[fromUSD] else { return}
         
-        guard let newItem = item.quotes else {return}
+        guard let quotesUSDTo = item.quotes, let valueTo = quotesUSDTo[toUSD] else { return }
         
-//        if(toUSD == newItem.keys){
-//
-//        }
+        if (toUSD != "USDUSD" ){
+            let result = value / valueFrom
+            finalResult = result * valueTo
+        } else {
+            finalResult = value / valueFrom
+        }
         
-        print (item.quotes?.keys)
+        self.result = finalResult
     }
     
 }
