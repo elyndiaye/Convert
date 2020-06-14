@@ -119,6 +119,13 @@ final class ConverterView: UIView{
         return view
     }()
     
+    lazy var finalValue: UILabel = {
+           let view = UILabel(frame: .zero)
+           view.font = UIFont.systemFont(ofSize: 35)
+           view.textColor = .red
+           view.text = ""
+           return view
+       }()
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -153,6 +160,7 @@ extension ConverterView: CodeView{
         viewValueExchange.addSubview(ButtonValueExchange)
         viewValueExchange.addSubview(valeuFromExchange)
         addSubview(viewValueExchange)
+        addSubview(finalValue)
     }
     
     func setupConstraints() {
@@ -232,6 +240,11 @@ extension ConverterView: CodeView{
         
         ButtonValueExchange.snp.makeConstraints { make in
             make.top.equalTo(valeuFromExchange).offset(55)
+            make.centerX.equalToSuperview()
+        }
+        
+        finalValue.snp.makeConstraints { make in
+            make.top.equalTo(viewValueExchange.snp_bottomMargin).offset(10)
             make.centerX.equalToSuperview()
         }
         
