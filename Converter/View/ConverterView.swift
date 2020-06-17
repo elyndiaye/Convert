@@ -13,6 +13,18 @@ final class ConverterView: UIView{
     
     weak var delegate: ExchangeDelegate?
     
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView(frame: .zero)
+        view.isScrollEnabled = true
+        return view
+    }()
+    
+    lazy var viewMain: UIView = {
+           let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+           return view
+       }()
+    
     lazy var viewBack: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor.cinza()
@@ -143,46 +155,59 @@ final class ConverterView: UIView{
 extension ConverterView: CodeView{
     func buildViewHierarchy() {
         //Adicionar View
-        
-        addSubview(origemLbl)
+        addSubview(scrollView)
+        scrollView.addSubview(viewMain)
+        viewMain.addSubview(origemLbl)
         
         viewBack.addSubview(fromLbl)
         viewBack.addSubview(ButtonFrom)
         viewBack.addSubview(valueLbl)
-        addSubview(viewBack)
+        viewMain.addSubview(viewBack)
         
         viewBackTo.addSubview(toLbl)
         viewBackTo.addSubview(ButtonTo)
         viewBackTo.addSubview(valueToLbl)
-        addSubview(viewBackTo)
+        viewMain.addSubview(viewBackTo)
         
         viewValueExchange.addSubview(ValueExchangeLbl)
         viewValueExchange.addSubview(ButtonValueExchange)
         viewValueExchange.addSubview(valeuFromExchange)
-        addSubview(viewValueExchange)
-        addSubview(finalValue)
+        viewMain.addSubview(viewValueExchange)
+        viewMain.addSubview(finalValue)
     }
     
     func setupConstraints() {
         //Configurar Constraints
         //Snapkit
         
+        scrollView.snp.makeConstraints { make in
+            
+            make.edges.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
+            
+        }
+                
+        viewMain.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.width.height.top.bottom.equalTo(self.scrollView)
+        }
+        
         origemLbl.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).offset(20)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(self.scrollView).offset(20)
+            make.centerX.equalTo(viewMain)
         }
         
         viewBack.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).offset(80)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(scrollView).offset(80)
+            make.centerX.equalTo(viewMain)
             make.height.equalTo(150)
-            make.left.right.equalToSuperview()
+            make.left.right.equalTo(viewMain)
         }
         
         
         fromLbl.snp.makeConstraints { make in
             make.top.equalTo(viewBack).offset(20)
-            make.left.equalToSuperview().offset(55)
+            make.left.equalTo(viewMain).offset(55)
         }
         
         ButtonFrom.snp.makeConstraints { make in
@@ -198,14 +223,14 @@ extension ConverterView: CodeView{
         
         viewBackTo.snp.makeConstraints { (make) in
             make.top.equalTo(viewBack.snp.bottom).offset(55)
-            make.centerX.equalToSuperview()
+           make.centerX.equalTo(viewMain)
             make.height.equalTo(150)
-            make.left.right.equalToSuperview()
+            make.left.right.equalTo(viewMain)
         }
         
         toLbl.snp.makeConstraints { make in
             make.top.equalTo(viewBackTo).offset(20)
-            make.left.equalToSuperview().offset(55)
+            make.left.equalTo(viewMain).offset(55)
         }
         
         ButtonTo.snp.makeConstraints { make in
@@ -222,25 +247,25 @@ extension ConverterView: CodeView{
         
         viewValueExchange.snp.makeConstraints { (make) in
             make.top.equalTo(viewBackTo.snp.bottom).offset(55)
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(viewMain)
             make.height.equalTo(160)
             make.left.right.equalToSuperview()
         }
         
         ValueExchangeLbl.snp.makeConstraints { make in
             make.top.equalTo(viewValueExchange).offset(20)
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(viewMain)
         }
         
         valeuFromExchange.snp.makeConstraints { make in
             make.top.equalTo(ValueExchangeLbl).offset(40)
             make.width.equalTo(150)
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(viewMain)
         }
         
         ButtonValueExchange.snp.makeConstraints { make in
             make.top.equalTo(valeuFromExchange).offset(55)
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(viewMain)
         }
         
         finalValue.snp.makeConstraints { make in
