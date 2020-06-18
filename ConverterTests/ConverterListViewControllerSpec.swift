@@ -29,7 +29,7 @@ class ConverterListViewControllerSpec: QuickSpec {
             }
 
             it("should have the expected number of Items") {
-                expect(controller.viewModel.item.count).to(equal(1))
+                expect(controller.tableViewDataSource!.items.count).toEventually(equal(168))
             }
         }
     }
