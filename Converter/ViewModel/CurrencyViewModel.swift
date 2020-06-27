@@ -13,19 +13,33 @@ class CurrencyViewModel {
     var service: ItemService = ItemServiceImpl()
  
     var filteredItems = [Currency]()
-    var item = [Currency]()
+    var currency : Currency?
     
     func getDataFromAPI(completionBlock : @escaping completionBlock){
         
         service.getItens(){(result) in
             if case .success(let items) = result {
-                self.item = [items]
+                self.currency = items
                 completionBlock(items)
             }
         }
     }
     
-       func getFiltredQuotes(searchText: String){
-    //    filteredItems = item.filter({ $0.quotes?.lowercased().range(of: searchText.lowercased()) != nil })
+    func getFiltredQuotes(searchText: String) -> [String: String] {
+        var filteredCurrency = [String: String]()
+        if let currency = currency, let currencies = currency.currencies {
+            filteredCurrency = currencies.filter({ (currency) -> Bool in
+                return currency.key.lowercased().contains(searchText.lowercased())
+            })
         }
+        return filteredCurrency
+    }
+    
+    func getCurrencyforButtonCancelinSearchBar() -> [String: String] {
+        var newCurrency = [String: String]()
+        if let currency = currency, let currencies = currency.currencies{
+            newCurrency = currencies
+        }
+        return newCurrency
+    }
 }
