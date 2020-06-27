@@ -97,7 +97,6 @@ extension ConverterListViewController: UISearchBarDelegate{
         let query = searchBar.text ?? ""
         if !query.isEmpty {
             print(query)
-          //  apiWithQueryHandler(query: query)
         }
     }
     
@@ -106,8 +105,8 @@ extension ConverterListViewController: UISearchBarDelegate{
         searchBar.text = ""
         screenList.search.showsCancelButton = false
         print("Cancel")
-        //Verificar:
-        screenList.table.reloadData()
+        let cancelCurrences = viewModel.getCurrencyforButtonCancelinSearchBar()
+        self.setupTableView(with: cancelCurrences)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -118,11 +117,8 @@ extension ConverterListViewController: UISearchBarDelegate{
             screenList.search.showsCancelButton = true
             inSearchMode = true
             print(searchText)
-            viewModel.getFiltredQuotes(searchText: searchText)
-          //  filteredMovie = movie.filter({ $0.title?.lowercased().range(of: searchText.lowercased()) != nil })
-            //filter({$0.title.lowercased().contains(searchText.lowercased())})
-            //print(filteredMovie)
-           // self.setupCollectionView(with: self.filteredMovie)
+            let currencies = viewModel.getFiltredQuotes(searchText: searchText)
+            self.setupTableView(with: currencies)
         }
     }
     
