@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,7 @@
 		80AE6FA724968ED500F05964 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FA624968ED500F05964 /* JsonHelper.swift */; };
 		80AE6FA924968F8C00F05964 /* ConvertServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FA824968F8C00F05964 /* ConvertServiceMock.swift */; };
 		80AE6FAB249690CF00F05964 /* ConverterListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE6FAA249690CF00F05964 /* ConverterListViewControllerSpec.swift */; };
+		80D6EE5A24F9556700776EE1 /* ConvertViewField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6EE5924F9556700776EE1 /* ConvertViewField.swift */; };
 		920B24D56CEBFF314232DFDF /* Pods_Converter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C379B07DCD28172477D632 /* Pods_Converter.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		80AE6FA624968ED500F05964 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
 		80AE6FA824968F8C00F05964 /* ConvertServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertServiceMock.swift; sourceTree = "<group>"; };
 		80AE6FAA249690CF00F05964 /* ConverterListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterListViewControllerSpec.swift; sourceTree = "<group>"; };
+		80D6EE5924F9556700776EE1 /* ConvertViewField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewField.swift; sourceTree = "<group>"; };
 		D55721F766F1604678AD1DF3 /* Pods-Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.release.xcconfig"; sourceTree = "<group>"; };
 		E9E663C1E038D65D48091F69 /* Pods-Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Converter/Pods-Converter.debug.xcconfig"; sourceTree = "<group>"; };
 		EDCC03651633C28D4629FE11 /* Pods-ConverterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConverterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConverterTests/Pods-ConverterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				80138991248C536E005E96DC /* ConverterView.swift */,
 				8013899B248CBB0E005E96DC /* ConvertListCell.xib */,
 				8013899D248CBD1D005E96DC /* ConvertListCell.swift */,
+				80D6EE5924F9556700776EE1 /* ConvertViewField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,23 +375,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ConverterTests/Pods-ConverterTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConverterTests/Pods-ConverterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConverterTests/Pods-ConverterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConverterTests/Pods-ConverterTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ConverterTests/Pods-ConverterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		677C5A17EF392A43888C517B /* [CP] Check Pods Manifest.lock */ = {
@@ -414,19 +410,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Converter/Pods-Converter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Converter/Pods-Converter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Converter/Pods-Converter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Converter/Pods-Converter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Converter/Pods-Converter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A708EDE908101818D2848C72 /* [CP] Check Pods Manifest.lock */ = {
@@ -461,6 +454,7 @@
 				80138960248C3E10005E96DC /* ConverterListViewController.swift in Sources */,
 				8013899A248CA6C8005E96DC /* CurrencyViewModel.swift in Sources */,
 				80415AD6248D7330002A46F3 /* Protocol.swift in Sources */,
+				80D6EE5A24F9556700776EE1 /* ConvertViewField.swift in Sources */,
 				801389A2248CC053005E96DC /* CurrencyTableViewDelegate.swift in Sources */,
 				8013895C248C3E10005E96DC /* AppDelegate.swift in Sources */,
 				804A12E32491F876003D6DB3 /* LiveQuoteViewModel.swift in Sources */,
