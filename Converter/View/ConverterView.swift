@@ -25,10 +25,10 @@ final class ConverterView: UIView{
            return view
        }()
     
-    lazy var viewBack: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.cinza()
-        view.layer.cornerRadius = 20
+    lazy var viewBack: ConvertViewField = {
+        let view = ConvertViewField()
+        view.setView(type: .from)
+        view.actionButton.addTarget(self, action: #selector(fromBtnPressed), for: .touchUpInside)
         return view
     }()
     
@@ -41,61 +41,15 @@ final class ConverterView: UIView{
         return view
     }()
     
-    lazy var ButtonFrom: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setImage(UIImage(named: "search_icon"), for: .normal)
-        view.addTarget(self, action: #selector(fromBtnPressed), for: .touchUpInside)
+    
+    
+    lazy var viewBackTo: ConvertViewField = {
+        let view = ConvertViewField()
+        view.setView(type: .to)
+        view.actionButton.addTarget(self, action: #selector(toBtnPressed), for: .touchUpInside)
         return view
     }()
     
-    lazy var fromLbl: UILabel = {
-        let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 25)
-        view.textColor = .black
-        view.text = "From"
-        return view
-    }()
-    
-    
-    lazy var valueLbl: UILabel = {
-        let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 35)
-        view.textColor = .red
-        view.text = "ValueFrom"
-        return view
-    }()
-    
-    lazy var viewBackTo: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.cinza()
-        view.layer.cornerRadius = 20
-        return view
-    }()
-    
-    
-    lazy var ButtonTo: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setImage(UIImage(named: "search_icon"), for: .normal)
-        view.addTarget(self, action: #selector(toBtnPressed), for: .touchUpInside)
-        return view
-    }()
-    
-    lazy var toLbl: UILabel = {
-        let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 25)
-        view.textColor = .black
-        view.text = "To"
-        return view
-    }()
-    
-    
-    lazy var valueToLbl: UILabel = {
-        let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 35)
-        view.textColor = .red
-        view.text = "ValueTo"
-        return view
-    }()
     
     lazy var viewValueExchange: UIView = {
         let view = UIView(frame: .zero)
@@ -159,14 +113,8 @@ extension ConverterView: CodeView{
         scrollView.addSubview(viewMain)
         viewMain.addSubview(origemLbl)
         
-        viewBack.addSubview(fromLbl)
-        viewBack.addSubview(ButtonFrom)
-        viewBack.addSubview(valueLbl)
         viewMain.addSubview(viewBack)
         
-        viewBackTo.addSubview(toLbl)
-        viewBackTo.addSubview(ButtonTo)
-        viewBackTo.addSubview(valueToLbl)
         viewMain.addSubview(viewBackTo)
         
         viewValueExchange.addSubview(ValueExchangeLbl)
@@ -205,22 +153,6 @@ extension ConverterView: CodeView{
         }
         
         
-        fromLbl.snp.makeConstraints { make in
-            make.top.equalTo(viewBack).offset(20)
-            make.left.equalTo(viewMain).offset(55)
-        }
-        
-        ButtonFrom.snp.makeConstraints { make in
-            make.top.equalTo(fromLbl).offset(55)
-            make.left.equalTo(fromLbl)
-        }
-        
-        
-        valueLbl.snp.makeConstraints { make in
-            make.top.equalTo(ButtonFrom)
-            make.left.equalTo(ButtonFrom).offset(60)
-        }
-        
         viewBackTo.snp.makeConstraints { (make) in
             make.top.equalTo(viewBack.snp.bottom).offset(55)
            make.centerX.equalTo(viewMain)
@@ -228,21 +160,6 @@ extension ConverterView: CodeView{
             make.left.right.equalTo(viewMain)
         }
         
-        toLbl.snp.makeConstraints { make in
-            make.top.equalTo(viewBackTo).offset(20)
-            make.left.equalTo(viewMain).offset(55)
-        }
-        
-        ButtonTo.snp.makeConstraints { make in
-            make.top.equalTo(toLbl).offset(55)
-            make.left.equalTo(fromLbl)
-        }
-        
-        
-        valueToLbl.snp.makeConstraints { make in
-            make.top.equalTo(ButtonTo)
-            make.left.equalTo(ButtonFrom).offset(60)
-        }
         
         
         viewValueExchange.snp.makeConstraints { (make) in

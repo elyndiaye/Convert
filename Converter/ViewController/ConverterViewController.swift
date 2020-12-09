@@ -37,7 +37,7 @@ extension ConverterViewController: ExchangeDelegate{
     func pressFromBtn() {
         let controller = ConverterListViewController(isSelectedTable: true){ text in
             self.textFrom = text
-            self.screenConverter.valueLbl.text = text
+            self.screenConverter.viewBack.valueLbl.text = text
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -45,7 +45,7 @@ extension ConverterViewController: ExchangeDelegate{
     func pressToBtn() {
         let controller = ConverterListViewController(isSelectedTable: true){ text in
             self.textTo = text
-            self.screenConverter.valueToLbl.text = text
+            self.screenConverter.viewBackTo.valueLbl.text = text
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -70,7 +70,7 @@ extension ConverterViewController: ExchangeDelegate{
         }
         
         if verify(){
-            valueDobule = (valueFromTextfield as! NSString).doubleValue
+            valueDobule = (valueFromTextfield as NSString).doubleValue
         }else{
             DisplayTextField(text: "Verify Numbuer", message: "Please only numbers in field!")
             return
