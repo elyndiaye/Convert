@@ -26,7 +26,7 @@ DEPENDENCIES:
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - iOSSnapshotTestCase
     - Nimble
     - Nimble-Snapshots
@@ -44,4 +44,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6ccefb902ca92f2576c8c655667cb5afa6be7ee1
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.9.3
